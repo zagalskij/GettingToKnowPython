@@ -29,10 +29,11 @@ enPoints =  {1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'S', 'T', 'R'],
              5: ['K'],
              8: ['J', 'X'],
              10: ['Q', 'Z']}
-word = input('Enter the word')
-if re.search('[а-яА-Я]', word):
+word = input('Enter the word: ')
+word = word.upper()
+if re.search('[А-Я]', word):
     print(sum([k for i in word for k, v in ruPoints.items() if i in v]))
-if re.search('[a-zA-Z]', word):
+if re.search('[A-Z]', word):
     print(sum([k for i in word for k, v in enPoints.items() if i in v]))
     
     
