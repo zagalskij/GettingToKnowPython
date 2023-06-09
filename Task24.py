@@ -10,19 +10,10 @@ import random
 
 
 def Max():
-    i = 0
-    max = 0
-    while i < len(bushes):
-        if i < len(bushes)-1:
-            sum = bushes[i] + bushes[i+1] + bushes[i-1]
-        else:
-            sum = bushes[i] + bushes[0] + bushes[i-1]
-        if(max < sum):
-            max = sum
-        i=i+1
-    return max
+    mx = max([bushes[i-1] + bushes[i] + bushes[(i+1) % numberBushes]] for i in range(numberBushes))
+    return mx
 
 
-bushes = int(input("Enter the number of bushes: "))
-bushes = [random.randint(0, 100) for _ in range(bushes)]
+numberBushes = int(input("Enter the number of bushes: "))
+bushes = [random.randint(0, 100) for _ in range(numberBushes)]
 print(Max())
