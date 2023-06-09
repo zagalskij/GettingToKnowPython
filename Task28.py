@@ -5,12 +5,9 @@
 
 # 2 2
 #     4 
-def sum(a = None, b = None):
-    if a is None:
-        if a > b:
-            a, b = a, b
-        else:
-            a, b = b, a
+def sum(a , b):
+    if a < b:
+        a, b = b, a
     if b == 0:
         return a
     return sum(a+1,b-1)
