@@ -10,13 +10,13 @@ def fillArray():
 def minMax(minValue, maxValue, array):
     arrayIndex = []
     for index, value in enumerate(array):
-        if value >= minValue and value <=maxValue:
+        if minValue <= value <=maxValue:
             arrayIndex.append(index)
-    return array
+    return arrayIndex
 
 
 minValue = int(input('Enter the minimum value: '))
 maxValue = int(input('Enter the maximal value: '))
 array = fillArray()
 print(array)
-minMax(minValue, maxValue, array)
+print(minMax(minValue, maxValue, array))

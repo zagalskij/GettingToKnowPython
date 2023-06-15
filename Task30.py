@@ -5,9 +5,8 @@ import time
 # Каждое число вводится с новой строки.
 def fillArray(firstElement,difference, quantity):
     array = []
-    quantity = (firstElement + (quantity - 1) * difference) + 1
-    for i in range(firstElement, quantity, difference):
-        array.append(i)
+    for i in range(quantity):
+        array.append(firstElement + i * difference)
     return array
 
 
