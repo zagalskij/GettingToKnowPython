@@ -20,11 +20,13 @@ def show_all_records():
         
 
 def search_record(last_name: str):
+    array_search_str = []
     flag = True
     with open("guide.txt") as f:
         data = f.readlines()
         for i in data: 
             if  last_name.lower() in i.split(' ')[1].lower(): 
+                array_search_str.append(i)
                 print(i)
                 flag = False
         if flag:
@@ -37,11 +39,17 @@ def add_contact(id, last_name, name, middle_name, number):
         data.write(f'{id} {last_name} {name} {middle_name} {number}')
 
 
+def update(code_change):
+    search_record(code_change)
+
+
 
 def main():
-    print('Выберите действие: 1 - Показать справочник,'
-          '2 - найти контакт,'
-          '3 - добавить контакт')
+    print(f'Select an action:\n1 - Show Directory\n' + \
+    '2 - Find a contact\n' + \
+    '3 - Add a contact\n' + \
+    '4 - Change a contact\n' + \
+    '5 - Delete a contact')
     select = int(input())
     if select == 1:
         show_all_records()
@@ -55,6 +63,9 @@ def main():
         middle_name = input('Enter the middle name: ')
         number = input("Enter the number of phone: ")
         add_contact(*id, last_name, name, middle_name, number)
-    
+    elif select == 4:
+        code_change = input('Enter the code of the person whose data you want to change: ')
+        update(code_change)
+    elif select == 5:
 
 main()
