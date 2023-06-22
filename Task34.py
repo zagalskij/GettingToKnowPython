@@ -18,15 +18,13 @@ def charInStr(string):
     for word in string:
         count = 0
         for char in word:
-            if char in "аеёиоуыэюяАЕЁИОУЫЭЮЯ":
+            if char in "аеёиоуыэюя":
                 count = count+1
         array.append(count)
     return len(array)  == array.count(array[0])
                
 
-
-
-poems = input().split(' ')
+poems = map(lambda x: x.lower(),input().split(' '))
 if charInStr(poems):
     print("Парам пам-пам")
 else:
